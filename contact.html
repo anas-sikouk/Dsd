@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Annacer Assurance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() { emailjs.init("vk3TsCj2TbhWy2OOB"); })();
+        tailwind.config = { theme: { extend: { colors: { brand: { red: '#E30613', dark: '#020617' } } } } }
+    </script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: sans-serif; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="pt-32">
+    <header class="fixed top-0 w-full z-50 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="glass rounded-3xl px-8 py-4 flex justify-between items-center">
+                <a href="index.html" class="font-black italic text-xl uppercase">Annacer</a>
+                <ul class="flex space-x-6 text-[10px] font-black uppercase">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="contact.html" class="text-brand-red">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6">
+        <div class="glass p-10 md:p-16 rounded-5xl border-white/10 shadow-2xl">
+            <h2 class="text-4xl font-black italic mb-4 uppercase">Prendre <span class="text-brand-red">RDV</span></h2>
+            <p class="text-slate-400 mb-10">L'agence vous rappellera pour confirmer.</p>
+            
+            <form id="appointment-form" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" id="client_name" placeholder="Nom Complet" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-brand-red outline-none">
+                    <input type="tel" id="client_phone" placeholder="Téléphone" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-brand-red outline-none">
+                </div>
+                <select id="client_service" required class="w-full bg-[#050a15] border border-white/10 rounded-2xl px-6 py-4 text-slate-400 outline-none">
+                    <option value="">Choisir un service...</option>
+                    <option value="Auto">Automobile</option>
+                    <option value="Sante">Santé</option>
+                    <option value="Barid">Barid Cash</option>
+                </select>
+                <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-5 rounded-[2rem] font-black uppercase tracking-widest text-xs hover:scale-105 transition-all">Confirmer ma demande</button>
+            </form>
+            <div id="success-message" class="hidden text-center py-10">
+                <i class="fas fa-check-circle text-brand-red text-5xl mb-4"></i>
+                <p class="text-xl font-bold">Envoyé avec succès !</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = "Envoi...";
+            const params = {
+                client_name: document.getElementById('client_name').value,
+                client_phone: document.getElementById('client_phone').value,
+                client_service: document.getElementById('client_service').value
+            };
+            emailjs.send('service_rdh5hvr', 'template_ni1dhzi', params).then(() => {
+                document.getElementById('appointment-form').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
