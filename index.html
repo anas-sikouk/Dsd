@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annacer Assurance | Accueil</title>
+    <meta name="description" content="Expertise en assurance à Sidi Kacem. Partenaire AtlantaSanad.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { blue: '#002D62', red: '#E30613', slate: '#0F172A', gold: '#B89655', accent: '#F1F5F9', dark: '#020617' } },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], display: ['Outfit', 'sans-serif'] },
+                    borderRadius: { '4xl': '2rem', '5xl': '3.5rem' },
+                    animation: { 'float': 'floating 3s ease-in-out infinite' }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --primary: #002D62; --secondary: #E30613; --glass: rgba(255, 255, 255, 0.03); }
+        body { background-color: #020617; color: #f8fafc; overflow-x: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: var(--glass); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-dark { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .mesh-hero { background: radial-gradient(circle at 0% 0%, rgba(0, 45, 98, 0.15) 0%, transparent 40%), radial-gradient(circle at 100% 100%, rgba(227, 6, 19, 0.15) 0%, transparent 40%); }
+        .text-gradient { background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <header id="navbar" class="fixed w-full z-[90] py-6 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="glass rounded-3xl px-8 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-brand-dark rounded-lg flex items-center justify-center border border-white/10"><i class="fas fa-shield-halved text-brand-red"></i></div>
+                    <span class="text-xl font-black uppercase italic">Annacer</span>
+                </div>
+                <ul class="hidden lg:flex space-x-8 text-[11px] font-black uppercase tracking-widest text-slate-400">
+                    <li><a href="index.html" class="text-white">Accueil</a></li>
+                    <li><a href="about.html" class="hover:text-white">L'Agence</a></li>
+                    <li><a href="services.html" class="hover:text-white">Solutions</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="ai-assistant.html" class="text-brand-red hover:scale-110 transition-transform"><i class="fas fa-robot mr-1"></i> IA</a></li>
+                </ul>
+                <a href="tel:0537595910" class="bg-white text-brand-dark px-6 py-2 rounded-xl font-black text-xs">05 37 59 59 10</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mesh-hero min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal active">
+                <h1 class="text-6xl lg:text-8xl font-black mb-8 leading-none italic font-display">La sécurité <br><span class="text-gradient">Redéfinie par</span><br><span class="text-brand-red">L'IA.</span></h1>
+                <p class="text-slate-400 text-lg mb-12 max-w-md leading-relaxed">À Sidi Kacem, découvrez une gestion proactive et digitale pour chaque étape de votre vie.</p>
+                <div class="flex gap-4">
+                    <a href="services.html" class="px-8 py-4 bg-white text-brand-dark rounded-2xl font-black uppercase text-xs">Nos Solutions</a>
+                    <a href="contact.html" class="px-8 py-4 glass text-white rounded-2xl font-black uppercase text-xs">Prendre RDV</a>
+                </div>
+            </div>
+            <div class="relative animate-float reveal active hidden lg:block">
+                <div class="glass rounded-5xl p-10 border-white/10 shadow-2xl relative z-10">
+                    <div class="w-16 h-10 bg-brand-gold rounded-lg mb-12"></div>
+                    <p class="text-2xl font-black italic uppercase">Client Premium</p>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em] mt-2">AtlantaSanad Partner</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 border-t border-white/5 text-center text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+        © 2026 Agence Annacer. Sidi Kacem.
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar').querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('glass-dark');
+            else nav.classList.remove('glass-dark');
+        });
+        const obs = new IntersectionObserver(e => e.forEach(en => en.isIntersecting && en.target.classList.add('active')));
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
