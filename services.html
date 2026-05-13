@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Solutions | Annacer Assurance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { blue: '#002D62', red: '#E30613', gold: '#B89655', dark: '#020617' } } } } }
+    </script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: sans-serif; overflow-x: hidden; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="pt-32">
+    <header class="fixed top-0 w-full z-50 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="glass rounded-3xl px-8 py-4 flex justify-between items-center">
+                <a href="index.html" class="font-black italic text-xl uppercase">Annacer</a>
+                <ul class="flex space-x-6 text-[10px] font-black uppercase">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html" class="text-brand-red">Solutions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6">
+        <h1 class="text-5xl font-black italic mb-16 text-center">Nos <span class="text-brand-red">Solutions</span></h1>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Auto -->
+            <div class="glass p-10 rounded-[3rem] reveal active">
+                <i class="fas fa-car-side text-4xl text-brand-red mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Automobile</h3>
+                <p class="text-sm text-slate-400 mb-6">Assistance 0km et remises exclusives à Sidi Kacem.</p>
+                <ul class="text-xs space-y-2 text-slate-300">
+                    <li><i class="fas fa-check text-brand-red mr-2"></i> Responsabilité Civile</li>
+                    <li><i class="fas fa-check text-brand-red mr-2"></i> Bris de Glaces</li>
+                </ul>
+            </div>
+            <!-- Santé -->
+            <div class="bg-gradient-to-br from-brand-blue to-black p-10 rounded-[3rem] border border-white/10 reveal active">
+                <i class="fas fa-heart-pulse text-4xl text-white mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Santé</h3>
+                <p class="text-sm text-blue-100/60 mb-6">Couverture optimale pour toute la famille.</p>
+                <ul class="text-xs space-y-2 text-blue-100/80">
+                    <li><i class="fas fa-check text-white mr-2"></i> Hospitalisation 100%</li>
+                    <li><i class="fas fa-check text-white mr-2"></i> Soins dentaires</li>
+                </ul>
+            </div>
+            <!-- Barid Cash -->
+            <div class="glass p-10 rounded-[3rem] reveal active">
+                <i class="fas fa-money-bill-transfer text-4xl text-brand-gold mb-8"></i>
+                <h3 class="text-2xl font-black mb-4 italic uppercase">Barid Cash</h3>
+                <p class="text-sm text-slate-400 mb-6">Transfert d'argent instantané et sécurisé.</p>
+                <ul class="text-xs space-y-2 text-slate-300">
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i> Western Union</li>
+                    <li><i class="fas fa-check text-brand-gold mr-2"></i> Paiement de factures</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-20 text-center text-slate-600 text-xs font-bold uppercase tracking-widest">© 2026 Annacer Assurance</footer>
+</body>
+</html>
